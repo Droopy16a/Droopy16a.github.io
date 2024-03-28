@@ -16,7 +16,6 @@
 	--color-bg-alert: #fdeaec;
 	--color-theme-primary: #623ce6;
 }
-  
 
 button,
 input,
@@ -34,6 +33,7 @@ strong {
 }
 
 body {
+	
 	user-select: none;
 	overflow: hidden;
 	font-family: "Inter", sans-serif;
@@ -214,8 +214,8 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    margin-top: 120px;
+    margin-bottom: 120px;
 }
 
 .bet{
