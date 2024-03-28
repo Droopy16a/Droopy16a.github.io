@@ -1,3 +1,33 @@
+const matches = [
+    { Match: "106 - T07", Score: "0 - 0", Date: "25/03/2024", Heure: "13:00", Poule: "P1" },
+    { Match: "TSTMG - 1STMG", Score: "3 - 0", Date: "28/03/2024", Heure: "12:30", Poule: "P1" },
+    { Match: "102+109 - TO5", Score: "2 - 0", Date: "28/03/2024", Heure: "13:00", Poule: "P4" },
+    { Match: "T04+T03 - 101", Score: "0 - 0", Date: "02/04/2024", Heure: "12:30", Poule: "P3" },
+    { Match: "TO8 - 1STL", Score: "0 - 0", Date: "02/04/2024", Heure: "13:00", Poule: "P4" },
+    { Match: "TO9 - TO6", Score: "0 - 0", Date: "03/04/2024", Heure: "12:30", Poule: "P2" },
+    { Match: "105 - 101", Score: "0 - 0", Date: "04/04/2024", Heure: "12:30", Poule: "P3" },
+    { Match: "TO1 - 108+103", Score: "0 - 0", Date: "04/04/2024", Heure: "13:00", Poule: "P3" },
+    { Match: "TO9 - 107", Score: "0 - 0", Date: "05/04/2024", Heure: "12:30", Poule: "P2" },
+    { Match: "1STMG - 106", Score: "0 - 0", Date: "05/04/2024", Heure: "13:00", Poule: "P1" },
+    { Match: "102+109 - 1STL", Score: "0 - 0", Date: "22/04/2024", Heure: "12:30", Poule: "P4" },
+    { Match: "108+103 - T03+T04", Score: "0 - 0", Date: "22/04/2024", Heure: "13:00", Poule: "P3" },
+    { Match: "T06 - 104", Score: "0 - 0", Date: "23/04/2024", Heure: "12:30", Poule: "P2" },
+    { Match: "TSTMG - T07", Score: "0 - 0", Date: "24/04/2024", Heure: "12:30", Poule: "P1" },
+    { Match: "T01 - 101", Score: "0 - 0", Date: "25/04/2024", Heure: "12:30", Poule: "P3" },
+    { Match: "T08 - T05", Score: "0 - 0", Date: "26/04/2024", Heure: "12:30", Poule: "P4" },
+    { Match: "104 - 107", Score: "0 - 0", Date: "29/04/2024", Heure: "13:00", Poule: "P2" },
+    { Match: "105 - 108+103", Score: "0 - 0", Date: "30/04/2024", Heure: "12:30", Poule: "P3" },
+    { Match: "T01 - T04+T03", Score: "0 - 0", Date: "02/05/2024", Heure: "12:30", Poule: "P3" },
+    { Match: "T06 - 107", Score: "0 - 0", Date: "02/05/2024", Heure: "13:00", Poule: "P2" },
+    { Match: "TSTMG - 106", Score: "0 - 0", Date: "03/05/2024", Heure: "12:30", Poule: "P1" },
+    { Match: "T05 - 1STL", Score: "0 - 0", Date: "06/05/2024", Heure: "12:30", Poule: "P4" },
+    { Match: "105 - T01", Score: "0 - 0", Date: "06/05/2024", Heure: "13:00", Poule: "P3" },
+    { Match: "T09 - 104", Score: "0 - 0", Date: "07/05/2024", Heure: "12:30", Poule: "P2" },
+    { Match: "1STMG - T07", Score: "0 - 0", Date: "13/05/2024", Heure: "12:30", Poule: "P1" },
+    { Match: "108+103 - 101", Score: "0 - 0", Date: "13/05/2024", Heure: "13:00", Poule: "P3" },
+    { Match: "105 - TO4+T03", Score: "0 - 0", Date: "14/05/2024", Heure: "12:30", Poule: "P3" }
+];
+
 var keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
 window.scrollTo(0,0)
@@ -32,7 +62,7 @@ window.addEventListener('keydown', preventDefaultForScrollKeys, false);
 const body = document.body
 var main = document.getElementsByClassName("main")[0]
 
-const nombreMatch = 7
+const nombreMatch = matches.length
 
 for (var i = 0; i < nombreMatch; i++){
     var container = document.createElement('div');
@@ -42,21 +72,21 @@ for (var i = 0; i < nombreMatch; i++){
         <div class="match-content">
             <div class="column">
                 <div class="team team--home">
-                    <h2 class="team-name">106</h2>
+                    <h2 class="team-name">${matches[i]["Match"].split(' - ')[0]}</h2>
                 </div>
             </div>
             <div class="column">
                 <div class="match-details">
                     <div class="match-date">
-                        25 Mars à <strong>12:40</strong>
+                    ${matches[i]["Date"]} à <strong>${matches[i]["Heure"]}</strong>
                     </div>
                     <div class="match-score">
-                        <span class="match-score-number match-score-number--leading">0</span>
+                        <span class="match-score-number match-score-number--leading">${matches[i]["Score"].split(' - ')[0]}</span>
                         <span class="match-score-divider">:</span>
-                        <span class="match-score-number">0</span>
+                        <span class="match-score-number">${matches[i]["Score"].split(' - ')[1]}</span>
                     </div>
                     <div class="match-time-lapsed">
-                        Poule P1
+                        Poule ${matches[i]["Poule"]}
                     </div>
                     <div class="match-referee">
                         Arbitre: <strong>Nom</strong>
@@ -66,7 +96,7 @@ for (var i = 0; i < nombreMatch; i++){
             </div>
             <div class="column">
                 <div class="team team--away">
-                    <h2 class="team-name">T07</h2>
+                    <h2 class="team-name">${matches[i]["Match"].split(' - ')[1]}</h2>
                 </div>
             </div>
         </div>
@@ -132,6 +162,8 @@ function betclick(i) {
 }
 
 window.addEventListener(wheelEvent ,function(e) {
+    
+    if (nb % 2 != 0){betclick(nombreScroll)}
     if (e.deltaY > 0){
         if (nombreScroll < nombreMatch-1){
             nombreScroll += 1;
