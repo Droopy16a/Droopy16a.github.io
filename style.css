@@ -16,10 +16,6 @@
 	--color-bg-alert: #fdeaec;
 	--color-theme-primary: #623ce6;
 }
-
-body {
-	user-select: none;
-  }
   
 
 button,
@@ -38,6 +34,8 @@ strong {
 }
 
 body {
+	user-select: none;
+	overflow: hidden;
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
 	color: var(--color-text-primary);
