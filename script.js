@@ -181,14 +181,25 @@ window.addEventListener(wheelEvent ,function(e) {
     main.style.top = distance *  (Math.floor(nombreMatch / 2) - nombreScroll) + "px";
 })
 
-transparent.style.height = window.innerHeight + "px";
-transparent.style.width = window.innerWidth + "px";
+window.addEventListener("load" ,function(e) {
+    setTimeout(() => {
+        transparent.style.height = window.innerHeight + "px";
+        transparent.style.width = window.innerWidth + "px";
+        main.style.height = window.innerHeight + "px";
+        // main.style.width = window.innerWidth + "px";
+    }, 100);
+})
+
+
+var column = document.getElementsByClassName('column');
 
 window.addEventListener("resize" ,function(e) {
     hr = $('.container');
+    
+    betDiv.style.width = match.clientWidth + "px";
     distance = next(hr).offset().top - hr.offset().top
-    console.log(distance)
     main.style.height = window.innerHeight + "px";
+    // main.style.width = window.innerWidth + "px";
     transparent.style.height = window.innerHeight + "px";
     transparent.style.width = window.innerWidth + "px";
 });
