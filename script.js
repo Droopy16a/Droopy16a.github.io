@@ -196,6 +196,7 @@ window.addEventListener(wheelEvent ,function(e) {
 })
 
 window.addEventListener("load" ,function(e) {
+        window.scrollTo(0,0)
         getMaxWidth()
         var M = document.getElementsByClassName("match");
         for (i=0; i<M.length; i++){
@@ -235,12 +236,13 @@ window.addEventListener("touchstart" ,function(e) {
 
 window.addEventListener("touchend" ,function(e) {
     place -= (e.changedTouches[0].clientY/this.window.innerHeight)
-    if (place > 0.05){
+    if (place > 0.01){
         if (nombreScroll < nombreMatch-1){
             if (nb % 2 != 0){betclick(nombreScroll)}
             nombreScroll += 1;
         };
-    } else if(nombreScroll > 0 && place < -0.05) {
+    } else if(nombreScroll > 0 && place < -0.01) {
+        if (nb % 2 != 0){betclick(nombreScroll)}
         nombreScroll -= 1;
     };
     
