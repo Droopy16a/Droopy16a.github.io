@@ -1,31 +1,31 @@
 const matches = [
-    { Match: "106 - T07", Score: "0 - 0", Date: "25/03/2024", Heure: "13:00", Poule: "P1" },
-    { Match: "TSTMG - 1STMG", Score: "3 - 0", Date: "28/03/2024", Heure: "12:30", Poule: "P1" },
-    { Match: "102+109 - TO5", Score: "2 - 0", Date: "28/03/2024", Heure: "13:00", Poule: "P4" },
-    { Match: "T04+T03 - 101", Score: "0 - 0", Date: "02/04/2024", Heure: "12:30", Poule: "P3" },
-    { Match: "TO8 - 1STL", Score: "0 - 0", Date: "02/04/2024", Heure: "13:00", Poule: "P4" },
-    { Match: "TO9 - TO6", Score: "0 - 0", Date: "03/04/2024", Heure: "12:30", Poule: "P2" },
-    { Match: "105 - 101", Score: "0 - 0", Date: "04/04/2024", Heure: "12:30", Poule: "P3" },
-    { Match: "TO1 - 108+103", Score: "0 - 0", Date: "04/04/2024", Heure: "13:00", Poule: "P3" },
-    { Match: "TO9 - 107", Score: "0 - 0", Date: "05/04/2024", Heure: "12:30", Poule: "P2" },
-    { Match: "1STMG - 106", Score: "0 - 0", Date: "05/04/2024", Heure: "13:00", Poule: "P1" },
-    { Match: "102+109 - 1STL", Score: "0 - 0", Date: "22/04/2024", Heure: "12:30", Poule: "P4" },
-    { Match: "108+103 - T03+T04", Score: "0 - 0", Date: "22/04/2024", Heure: "13:00", Poule: "P3" },
-    { Match: "T06 - 104", Score: "0 - 0", Date: "23/04/2024", Heure: "12:30", Poule: "P2" },
-    { Match: "TSTMG - T07", Score: "0 - 0", Date: "24/04/2024", Heure: "12:30", Poule: "P1" },
-    { Match: "T01 - 101", Score: "0 - 0", Date: "25/04/2024", Heure: "12:30", Poule: "P3" },
-    { Match: "T08 - T05", Score: "0 - 0", Date: "26/04/2024", Heure: "12:30", Poule: "P4" },
-    { Match: "104 - 107", Score: "0 - 0", Date: "29/04/2024", Heure: "13:00", Poule: "P2" },
-    { Match: "105 - 108+103", Score: "0 - 0", Date: "30/04/2024", Heure: "12:30", Poule: "P3" },
-    { Match: "T01 - T04+T03", Score: "0 - 0", Date: "02/05/2024", Heure: "12:30", Poule: "P3" },
-    { Match: "T06 - 107", Score: "0 - 0", Date: "02/05/2024", Heure: "13:00", Poule: "P2" },
-    { Match: "TSTMG - 106", Score: "0 - 0", Date: "03/05/2024", Heure: "12:30", Poule: "P1" },
-    { Match: "T05 - 1STL", Score: "0 - 0", Date: "06/05/2024", Heure: "12:30", Poule: "P4" },
-    { Match: "105 - T01", Score: "0 - 0", Date: "06/05/2024", Heure: "13:00", Poule: "P3" },
-    { Match: "T09 - 104", Score: "0 - 0", Date: "07/05/2024", Heure: "12:30", Poule: "P2" },
-    { Match: "1STMG - T07", Score: "0 - 0", Date: "13/05/2024", Heure: "12:30", Poule: "P1" },
-    { Match: "108+103 - 101", Score: "0 - 0", Date: "13/05/2024", Heure: "13:00", Poule: "P3" },
-    { Match: "105 - TO4+T03", Score: "0 - 0", Date: "14/05/2024", Heure: "12:30", Poule: "P3" }
+    { Match: "106 - T07", Score: "0 - 0", Date: "25/03/2024", Heure: "13:00", Poule: "P1", Etat: "Terminé", Action: "Resultats"},
+    { Match: "TSTMG - 1STMG", Score: "3 - 0", Date: "28/03/2024", Heure: "12:30", Poule: "P1", Etat: "Terminé", Action: "Resultats"},
+    { Match: "102+109 - TO5", Score: "2 - 0", Date: "28/03/2024", Heure: "13:00", Poule: "P4", Etat: "Terminé", Action: "Resultats"},
+    { Match: "T04+T03 - 101", Score: "0 - 0", Date: "02/04/2024", Heure: "12:30", Poule: "P3", Etat: "Plannifié", Action: "Parier"},
+    { Match: "TO8 - 1STL", Score: "0 - 0", Date: "02/04/2024", Heure: "13:00", Poule: "P4", Etat: "Plannifié", Action: "Parier" },
+    { Match: "TO9 - TO6", Score: "0 - 0", Date: "03/04/2024", Heure: "12:30", Poule: "P2", Etat: "Plannifié", Action: "Parier" },
+    { Match: "105 - 101", Score: "0 - 0", Date: "04/04/2024", Heure: "12:30", Poule: "P3", Etat: "Plannifié", Action: "Parier" },
+    { Match: "TO1 - 108+103", Score: "0 - 0", Date: "04/04/2024", Heure: "13:00", Poule: "P3", Etat: "Plannifié", Action: "Parier" },
+    { Match: "TO9 - 107", Score: "0 - 0", Date: "05/04/2024", Heure: "12:30", Poule: "P2", Etat: "Plannifié", Action: "Parier" },
+    { Match: "1STMG - 106", Score: "0 - 0", Date: "05/04/2024", Heure: "13:00", Poule: "P1", Etat: "Plannifié", Action: "Parier" },
+    { Match: "102+109 - 1STL", Score: "0 - 0", Date: "22/04/2024", Heure: "12:30", Poule: "P4", Etat: "Plannifié", Action: "Parier" },
+    { Match: "108+103 - T03+T04", Score: "0 - 0", Date: "22/04/2024", Heure: "13:00", Poule: "P3", Etat: "Plannifié", Action: "Parier" },
+    { Match: "T06 - 104", Score: "0 - 0", Date: "23/04/2024", Heure: "12:30", Poule: "P2", Etat: "Plannifié", Action: "Parier" },
+    { Match: "TSTMG - T07", Score: "0 - 0", Date: "24/04/2024", Heure: "12:30", Poule: "P1", Etat: "Plannifié", Action: "Parier" },
+    { Match: "T01 - 101", Score: "0 - 0", Date: "25/04/2024", Heure: "12:30", Poule: "P3", Etat: "Plannifié", Action: "Parier" },
+    { Match: "T08 - T05", Score: "0 - 0", Date: "26/04/2024", Heure: "12:30", Poule: "P4", Etat: "Plannifié", Action: "Parier" },
+    { Match: "104 - 107", Score: "0 - 0", Date: "29/04/2024", Heure: "13:00", Poule: "P2", Etat: "Plannifié", Action: "Parier" },
+    { Match: "105 - 108+103", Score: "0 - 0", Date: "30/04/2024", Heure: "12:30", Poule: "P3", Etat: "Plannifié", Action: "Parier" },
+    { Match: "T01 - T04+T03", Score: "0 - 0", Date: "02/05/2024", Heure: "12:30", Poule: "P3", Etat: "Plannifié", Action: "Parier" },
+    { Match: "T06 - 107", Score: "0 - 0", Date: "02/05/2024", Heure: "13:00", Poule: "P2", Etat: "Plannifié", Action: "Parier" },
+    { Match: "TSTMG - 106", Score: "0 - 0", Date: "03/05/2024", Heure: "12:30", Poule: "P1", Etat: "Plannifié", Action: "Parier" },
+    { Match: "T05 - 1STL", Score: "0 - 0", Date: "06/05/2024", Heure: "12:30", Poule: "P4", Etat: "Plannifié", Action: "Parier" },
+    { Match: "105 - T01", Score: "0 - 0", Date: "06/05/2024", Heure: "13:00", Poule: "P3", Etat: "Plannifié", Action: "Parier" },
+    { Match: "T09 - 104", Score: "0 - 0", Date: "07/05/2024", Heure: "12:30", Poule: "P2", Etat: "Plannifié", Action: "Parier" },
+    { Match: "1STMG - T07", Score: "0 - 0", Date: "13/05/2024", Heure: "12:30", Poule: "P1", Etat: "Plannifié", Action: "Parier" },
+    { Match: "108+103 - 101", Score: "0 - 0", Date: "13/05/2024", Heure: "13:00", Poule: "P3", Etat: "Plannifié", Action: "Parier" },
+    { Match: "105 - TO4+T03", Score: "0 - 0", Date: "14/05/2024", Heure: "12:30", Poule: "P3", Etat: "Plannifié", Action: "Parier" }
 ];
 
 var keys = {37: 1, 38: 1, 39: 1, 40: 1};
@@ -91,7 +91,7 @@ for (var i = 0; i < nombreMatch; i++){
                     <div class="match-referee">
                         Arbitre: <strong>Nom</strong>
                     </div>
-                    <input onclick="betclick(${i})" type="button" id="bet${i}" class="match-bet-place" value="Parier"/>
+                    <input onclick="betclick(${i})" type="button" id="bet${i}" class="match-bet-place" value="${matches[i]["Action"]}"/>
                 </div>
             </div>
             <div class="column">
@@ -114,6 +114,8 @@ for (var i = 0; i < nombreMatch; i++){
 };
 
 var nombreScroll = 0
+
+var transparent = document.getElementsByClassName("transparent")[0];
 
 var betButton = document.getElementById("bet0");
 
@@ -177,4 +179,35 @@ window.addEventListener(wheelEvent ,function(e) {
     container = document.getElementsByClassName('container')[nombreScroll];
     container.style.zIndex = 999;
     main.style.top = distance *  (Math.floor(nombreMatch / 2) - nombreScroll) + "px";
+})
+
+transparent.style.height = window.innerHeight + "px";
+transparent.style.width = window.innerWidth + "px";
+
+window.addEventListener("resize" ,function(e) {
+    hr = $('.container');
+    distance = next(hr).offset().top - hr.offset().top
+    console.log(distance)
+    main.style.height = window.innerHeight + "px";
+    transparent.style.height = window.innerHeight + "px";
+    transparent.style.width = window.innerWidth + "px";
+})
+
+window.addEventListener("mousemove" ,function(e) {
+    var place = e.y/this.window.innerHeight
+    if (nb % 2 != 0){betclick(nombreScroll)}
+    if (place > 0.5){
+        if (nombreScroll < nombreMatch-1){
+            nombreScroll += 1;
+        };
+    } else if(nombreScroll > 0) {
+        nombreScroll -= 1;
+    };
+    
+    console.log(nombreScroll)
+    container.style.zIndex = 0;
+    container = document.getElementsByClassName('container')[nombreScroll];
+    container.style.zIndex = 999;
+    main.style.top = distance *  (Math.floor(nombreMatch / 2) - nombreScroll) + "px";
+    console.log(place)
 })
