@@ -235,12 +235,12 @@ window.addEventListener("touchstart" ,function(e) {
 
 window.addEventListener("touchend" ,function(e) {
     place -= (e.changedTouches[0].clientY/this.window.innerHeight)
-    if (place > 0.25){
+    if (place > 0.05){
         if (nombreScroll < nombreMatch-1){
             if (nb % 2 != 0){betclick(nombreScroll)}
             nombreScroll += 1;
         };
-    } else if(nombreScroll > 0 && place < -0.25) {
+    } else if(nombreScroll > 0 && place < -0.05) {
         nombreScroll -= 1;
     };
     
