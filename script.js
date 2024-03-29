@@ -174,7 +174,7 @@ window.addEventListener(wheelEvent ,function(e) {
         nombreScroll -= 1;
     };
     
-    console.log(nombreScroll)
+    
     container.style.zIndex = 0;
     container = document.getElementsByClassName('container')[nombreScroll];
     container.style.zIndex = 999;
@@ -197,25 +197,22 @@ var place = null;
 
 window.addEventListener("touchstart" ,function(e) {
     place = e.touches[0].clientY/this.window.innerHeight;
-    console.log(place);
 });
 
 window.addEventListener("touchend" ,function(e) {
-    console.log(e)
-    place = place - (e.changedTouches[0].clientY/this.window.innerHeight)
+    place -= (e.changedTouches[0].clientY/this.window.innerHeight)
     if (nb % 2 != 0){betclick(nombreScroll)}
-    if (place > 0){
+    if (place > 0.25){
         if (nombreScroll < nombreMatch-1){
             nombreScroll += 1;
         };
-    } else if(nombreScroll > 0) {
+    } else if(nombreScroll > 0 && place < -0.25) {
         nombreScroll -= 1;
     };
     
-    console.log(nombreScroll)
+    
     container.style.zIndex = 0;
     container = document.getElementsByClassName('container')[nombreScroll];
     container.style.zIndex = 999;
     main.style.top = distance *  (Math.floor(nombreMatch / 2) - nombreScroll) + "px";
-    console.log(place);
 });
