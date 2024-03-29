@@ -195,12 +195,14 @@ window.addEventListener("resize" ,function(e) {
 
 var place = null;
 
-window.addEventListener("mousedown" ,function(e) {
-    place = e.y/this.window.innerHeight;
+window.addEventListener("touchstart" ,function(e) {
+    place = e.touches[0].clientY/this.window.innerHeight;
+    console.log(place);
 });
 
-window.addEventListener("mouseup" ,function(e) {
-    place = place - (e.y/this.window.innerHeight)
+window.addEventListener("touchend" ,function(e) {
+    console.log(e)
+    place = place - (e.changedTouches[0].clientY/this.window.innerHeight)
     if (nb % 2 != 0){betclick(nombreScroll)}
     if (place > 0){
         if (nombreScroll < nombreMatch-1){
