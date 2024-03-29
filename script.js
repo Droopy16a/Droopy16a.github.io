@@ -191,4 +191,29 @@ window.addEventListener("resize" ,function(e) {
     main.style.height = window.innerHeight + "px";
     transparent.style.height = window.innerHeight + "px";
     transparent.style.width = window.innerWidth + "px";
-})
+});
+
+var place = null;
+
+window.addEventListener("mousedown" ,function(e) {
+    place = e.y/this.window.innerHeight;
+});
+
+window.addEventListener("mouseup" ,function(e) {
+    place = place - (e.y/this.window.innerHeight)
+    if (nb % 2 != 0){betclick(nombreScroll)}
+    if (place > 0){
+        if (nombreScroll < nombreMatch-1){
+            nombreScroll += 1;
+        };
+    } else if(nombreScroll > 0) {
+        nombreScroll -= 1;
+    };
+    
+    console.log(nombreScroll)
+    container.style.zIndex = 0;
+    container = document.getElementsByClassName('container')[nombreScroll];
+    container.style.zIndex = 999;
+    main.style.top = distance *  (Math.floor(nombreMatch / 2) - nombreScroll) + "px";
+    console.log(place);
+});
