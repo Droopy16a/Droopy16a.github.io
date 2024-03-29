@@ -192,22 +192,3 @@ window.addEventListener("resize" ,function(e) {
     transparent.style.height = window.innerHeight + "px";
     transparent.style.width = window.innerWidth + "px";
 })
-
-window.addEventListener("mousemove" ,function(e) {
-    var place = e.y/this.window.innerHeight
-    if (nb % 2 != 0){betclick(nombreScroll)}
-    if (place > 0.5){
-        if (nombreScroll < nombreMatch-1){
-            nombreScroll += 1;
-        };
-    } else if(nombreScroll > 0) {
-        nombreScroll -= 1;
-    };
-    
-    console.log(nombreScroll)
-    container.style.zIndex = 0;
-    container = document.getElementsByClassName('container')[nombreScroll];
-    container.style.zIndex = 999;
-    main.style.top = distance *  (Math.floor(nombreMatch / 2) - nombreScroll) + "px";
-    console.log(place)
-})
