@@ -139,6 +139,7 @@ body {
 }
 
 .match-date, .match-referee {
+	text-align: center;
 	font-size: 14px;
 	color: var(--color-text-secondary);
 	strong {
@@ -241,7 +242,7 @@ body {
 }
 
 .transparent{
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(3px);
     top: 0;
     position: fixed;
     z-index: 900;
