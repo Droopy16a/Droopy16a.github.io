@@ -110,7 +110,6 @@ for (var i = 0; i < nombreMatch; i++){
     
     var betDiv = document.getElementsByClassName(`bet`)[i];
     var match = document.getElementsByClassName("match")[0];
-    betDiv.style.width = match.clientWidth + "px";
 };
 
 var nombreScroll = 0
@@ -124,6 +123,19 @@ var container =  document.getElementsByClassName(`container`)[0];
 container.style.zIndex = 999;
 
 main.style.height = window.innerHeight + "px";
+
+maxwidth = match.clientWidth;
+
+console.log(maxwidth);
+
+function getMaxWidth() {
+    var M = document.getElementsByClassName("match");
+    for (i=0; i<M.length; i++){
+        if (M[i].clientWidth < maxwidth){
+            maxwidth = M[i].clientWidth;
+        }
+    }
+}
 
 next = function($el) {
     while($el.length) {  
@@ -146,6 +158,8 @@ var nb = 0
 function betclick(i) {
     betButton = document.getElementById(`bet${i}`);
     betDiv = document.getElementsByClassName(`bet`)[i];
+    match = document.getElementsByClassName("match")[i];
+    betDiv.style.width = match.clientWidth + "px";
     if (nb % 2 == 0) {
         betDiv.style.transform = `translate(0,${match.clientHeight}px)`;
         betDiv.style.borderTopRightRadius = "0";
@@ -182,20 +196,29 @@ window.addEventListener(wheelEvent ,function(e) {
 })
 
 window.addEventListener("load" ,function(e) {
-    setTimeout(() => {
+        getMaxWidth()
+        var M = document.getElementsByClassName("match");
+        for (i=0; i<M.length; i++){
+            M[i].style.minWidth = maxwidth + "px";
+        }
+        
+        betDiv.style.width = match.clientWidth + "px";
         transparent.style.height = window.innerHeight + "px";
         transparent.style.width = window.innerWidth + "px";
         main.style.height = window.innerHeight + "px";
         // main.style.width = window.innerWidth + "px";
-    }, 100);
 })
 
 
 var column = document.getElementsByClassName('column');
 
 window.addEventListener("resize" ,function(e) {
+    getMaxWidth()
+    var M = document.getElementsByClassName("match");
+    for (i=0; i<M.length; i++){
+        M[i].style.minWidth = maxwidth + "px";
+    }
     hr = $('.container');
-    
     betDiv.style.width = match.clientWidth + "px";
     distance = next(hr).offset().top - hr.offset().top
     main.style.height = window.innerHeight + "px";
