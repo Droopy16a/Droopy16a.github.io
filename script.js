@@ -210,6 +210,19 @@ window.addEventListener("load" ,function(e) {
         // main.style.width = window.innerWidth + "px";
 })
 
+window.scrollTo(0,0)
+getMaxWidth()
+var M = document.getElementsByClassName("match");
+for (i=0; i<M.length; i++){
+    M[i].style.minWidth = maxwidth + "px";
+}
+
+betDiv.style.width = match.clientWidth + "px";
+transparent.style.height = window.innerHeight + "px";
+transparent.style.width = window.innerWidth + "px";
+main.style.height = window.innerHeight + "px";
+// main.style.width = window.innerWidth + "px";
+
 
 var column = document.getElementsByClassName('column');
 
