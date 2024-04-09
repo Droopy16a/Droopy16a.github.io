@@ -3,68 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Tic Tac Toe</h1>
-    <h1 id="turn"></h1>
-    <div id="board"></div>
-    <script>
-        const plturn = document.getElementById("turn")
-        const ws = new WebSocket("ws://localhost:8765");
-
-        ws.onopen = () => {
-            console.log("Connected to server.");
-        };
-
-        ws.onmessage = (event) => {
-            const boardDiv = document.getElementById("board");
-            boardDiv.innerHTML = "";
-            const bd = event.data.split('@');
-            const boardData = bd[0].split('\n');
-            const player = bd[1];
-            plturn.textContent = player
-            console.log(boardData)
-            for (let i = 0; i < boardData.length; i++) {
-                const row = boardData[i];
-                console.log(row.split(' '))
-                for (let j = 0; j < row.split(' ').length; j++) {
-                    const cell = row.split(' ')[j]; 
-                    const cellDiv = document.createElement("div");
-                    if (cell != "-"){
-                        cellDiv.textContent = cell;
-                    }else{
-                        cellDiv.textContent = " ";
-                    }
-                    cellDiv.className = i + " " + j
-                    cellDiv.addEventListener('click', () => handleClick(i,j))
-                    boardDiv.appendChild(cellDiv);
-                }
-            }
-        };
-
-        const handleClick = (row, col) => {
-            ws.send(row.toString());
-            ws.send(col.toString());
-        };
-    </script>
-    <style>
-        #board {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-            gap: 2px;
-            margin-top: 20px;
-        }
-
-        #board div {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            background-color: lightgray;
-            cursor: pointer;    
-        }
-    </style>
+    <textarea type="text" id="message"></textarea>
+    <script src="script.js"></script>
 </body>
 </html>
