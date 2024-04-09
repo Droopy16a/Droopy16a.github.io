@@ -1,4 +1,4 @@
-const ws = new WebSocket("ws://nsiprojet.netlify.app:5000");
+const ws = new WebSocket("ws://192.168.1.106:8765");
 
 const chat = document.getElementById("message");
 
