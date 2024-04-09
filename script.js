@@ -1,4 +1,4 @@
-const ws = new WebSocket("ws://droopy16a.github.io:5000");
+const ws = new WebSocket("ws://nsiprojet.netlify.app:5000");
 
 const chat = document.getElementById("message");
 
