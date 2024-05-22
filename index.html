@@ -7,14 +7,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="win" style="
+    position:fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #008000c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    transform: translateY(-100%);
+    transition: 0.5s;
+    ">
+        <h1 style="
+        font-size: 190px;
+        color: white;
+    ">Victoire</h1>
+    </div>
+    <div id="lose" style="
+    position:fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #800000c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    transform: translateY(-100%);
+    transition: 0.5s;
+    ">
+        <h1 style="
+        font-size: 190px;
+        color: white;
+    ">Défaite</h1>
+    </div>
+    <div id="tourDiv" style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    top: 15%;
+    position: relative;
+">
+        <h1 id="tour"></h1>
+    </div>
     <div style="
     display: flex;
     justify-content: center;
-">
+    height: 100%;
+    align-items: center;
+    ">
         <div id="board"></div>
         <div id="note"></div>
     </div>
-    <textarea type="text" id="message"></textarea>
+    <textarea type="text" id="message" hidden></textarea>
     <script src="script.js"></script>
     <style>
     </style>
