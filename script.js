@@ -54,7 +54,7 @@ var ip = url[1];
 var ws = null;
 
 if (ip){
-    ws = new WebSocket("wss://" + ip);
+    ws = new WebSocket("wss://" + ip + ":5000");
 }else{
     ws = new WebSocket("wss://192.168.1.26:5000");
 };
