@@ -18,6 +18,7 @@
     text-transform: uppercase;
     transform: translateY(-100%);
     transition: 0.5s;
+        z-index: 3;
     ">
         <h1 style="
         font-size: 190px;
@@ -35,20 +36,40 @@
     text-transform: uppercase;
     transform: translateY(-100%);
     transition: 0.5s;
+        z-index: 3;
     ">
         <h1 style="
         font-size: 190px;
         color: white;
     ">Défaite</h1>
     </div>
+
+    <nav style="
+            z-index: 20;
+            position: fixed;
+        ">
+      <div class="navbar">
+        <div class="container nav-container">
+            <input class="checkbox" type="checkbox" name="" id="" />
+            <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+            </div>  
+          <div class="logo">
+            <h1>BatailleNavale</h1>
+          </div>
+          <div class="menu-items" id="usernames">
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </nav>
     <div id="tourDiv" style="
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    top: 15%;
-    position: relative;
+        display: flex;align-items: center;justify-content: center;width: 100%;top: 15%;position: relative;z-index: 3;
 ">
+        
         <h1 id="tour"></h1>
     </div>
     <div style="
@@ -56,12 +77,33 @@
     justify-content: center;
     height: 100%;
     align-items: center;
+        flex-wrap: wrap;
+
+        position: relative;    
     ">
         <div id="board"></div>
         <div id="note"></div>
+        <div style="
+            background-color: #101B27;
+            height: calc(5vh * 11);
+            width: 20%;
+            overflow: hidden;
+        " >
+
+            <div id="actions" style="
+                height: 95%;
+                overflow-y: scroll;
+                overflow-wrap: break-word;
+
+            ">
+
+            </div>
+            <input id="sendMess" style="height: 5%; width: 100%" type="text"/>
+        </div>
     </div>
     <textarea type="text" id="message" hidden></textarea>
-    <script src="script.js"></script>
+    <script src="script.js">
+    </script>
     <style>
     </style>
 </body>

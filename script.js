@@ -1,3 +1,4 @@
+
 function bouge(elem) {
     elem.style.animation = "bouge 0.3s"
     elem.style.animationIterationCount = "infinite"
@@ -7,6 +8,7 @@ function bouge(elem) {
     }, 300)
 };
 
+var nom = null
 var plouf = new Audio("plouf.wav");
 var error = new Audio("error.mp3");
 var boum = new Audio("boum.mp3");
@@ -49,12 +51,22 @@ for (let i = 0; i < 10; i++) {
 }
 
 var url = window.location.href;
+var bombesCompte = 0;
 url = url.split('?ip=');
 var ip = url[1];
 var ws = null;
 
+const input = document.getElementById("sendMess");
+input.addEventListener("keyup", function (e) {
+    if (e.keyCode === 13 && input.value !== ""){
+        console.log(input.value);
+        ws.send("Pmessages:" + input.value);
+        input.value = "";
+    };
+});
+
 if (ip){
-    ws = new WebSocket("wss://" + ip);
+    ws = new WebSocket(ip.replace("http", "ws"));
 }else{
     ws = new WebSocket("wss://192.168.1.26:5000");
 };
@@ -145,9 +157,45 @@ ws.onmessage = function(event) {
             bouge(document.getElementById("tourDiv"));
         }
         console.log(tour)
-    } else if(event.data == "reload"){
+    } else if(event.data.split(":")[0] == 'nom'){
+        nom = event.data.split(":")[1];
+        nom = nom.split('N');
+        console.log(nom)
+        document.getElementById("usernames").innerHTML = "";
+        for (let i=0; i < nom.length; i++){
+            if (nom[i] != ""){
+            const li = document.createElement("li");
+            li.innerHTML = '<a href="#">' + nom[i] + '</a>';
+            document.getElementById("usernames").appendChild(li);}
+        };
+        const input = document.createElement("input");
+        input.style.width = "100%";
+        input.style.padding = "12px 20px";
+        input.style.margin = "8px 0";
+        input.style.boxSizing = "border-box";
+        input.placeholder = "Nouveau nom";
+        input.id = "name";
+        input.type = "text";
+        document.getElementById("usernames").appendChild(input);
+        input.addEventListener("keyup", function (e) {
+            if (e.keyCode === 13 && input.value !== ""){
+                console.log(input.value)
+                ws.send("change:" + input.value)}
+        })
+
+    }else if(event.data == "reload"){
         location.reload()
-    }else if(event.data == "Serveur complet. Réessayez plus tard."){
+    } else if(event.data.split(":")[0] == 'Messages'){
+        var MList = event.data;
+        MList = MList.split(':')[1];
+        MList = MList.split("$");
+        actions.innerHTML = "";
+        for (let i = 0; i < MList.length; i++){
+            const message = document.createElement("li");
+            message.innerHTML = MList[i];
+            actions.appendChild(message);
+        }
+    } else if(event.data == "Serveur complet. Réessayez plus tard."){
         tourDiv.innerText = event.data;
     }
     else {
@@ -155,7 +203,7 @@ ws.onmessage = function(event) {
     }
 
     if (event.data == "lose"){
-        lose();
+        win();
     }
 };
 
@@ -180,6 +228,7 @@ function compteTouches(){
         stop()
         plouf.play();
     } else{
+        bombesCompte +=1
         stop()
         boum.play();
     }
@@ -189,13 +238,13 @@ function compteTouches(){
 function stop(){
     error.pause();
     error.currentTime = 0;
-    
+
     boum.pause();
     boum.currentTime = 0;
-    
+
     grosBoum.pause();
     grosBoum.currentTime = 0;
-    
+
     plouf.pause();
     plouf.currentTime = 0;
 }
@@ -203,7 +252,7 @@ function stop(){
 function shake(elem) {
     stop()
     error.play();
-    
+
     elem.style.animation = "shake 0.5s"
     elem.style.animationIterationCount = "infinite"
     elem.style.backgroundColor = "rgb(248, 89, 89)";
@@ -222,46 +271,50 @@ function win(){
 function lose(){
     document.getElementById("lose").style.transform = "translateY(0%)";
     tourDiv.outerHTML = '<button  id="tour" onclick="location.reload()">Rejouer</button>';
-}
+};
+
+const actions = document.getElementById("actions");
 
 function guess(coo) {
     ws.send(coo);
     console.log(coo);
     setTimeout(() => {
         const note = document.getElementById("N" + coo);
+        console.log("bombe : ", bombesCompte);
         if (chat.value === "touché") {
-            stop()
+            
+            stop();
             boum.play();
-            
+
             note.style.backgroundColor = "#f44336";
-            touches += 1;
-            
-            if (touches == 15){
-                win()
+
+            if (bombesCompte == 15){
+                lose()
                 ws.send("D");
             }
             note.innerText = "";
         } else if (chat.value === "coulé") {
+
             stop()
             grosBoum.play();
-            
+
             note.style.backgroundColor = "#f44336";
-            touches += 1;
-            
-            if (touches == 15){
-                win()
+
+            if (bombesCompte == 15){
+                lose()
                 ws.send("D");
             }
             note.innerText = "";
         } else if (chat.value === "Raté") {
+            
             stop()
             plouf.play();
-            
+
             note.style.backgroundColor = "#4C5B6A";
             note.innerText = "";
         } else {
             shake(document.body)
         }
-    }, 100);
+    }, 250);
 }
 
