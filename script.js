@@ -66,7 +66,7 @@ input.addEventListener("keyup", function (e) {
 });
 
 if (ip){
-    ws = new WebSocket(ip.replace("http", "ws"));
+    ws = new WebSocket("wss://" + ip + ":5000");
 }else{
     ws = new WebSocket("wss://192.168.1.26:5000");
 };
